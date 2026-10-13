@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#a6d4fb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>一个人又不会怎样</title>
+    <link rel="stylesheet" href="./styles.css?v=20261010-3" />
+  </head>
+  <body>
+    <div class="device-stage">
+    <div class="device-frame">
+    <div class="device-island" aria-hidden="true"></div>
+    <div class="device-home-indicator" aria-hidden="true"></div>
+    <main id="app">
+      <section id="entryScreen" class="page entry-page is-active" aria-label="活动入口">
+        <div class="long-frame entry-frame">
+          <img class="design-image screen-base" src="./assets/figma-entry-clean.png" alt="一个人又不会怎样活动入口" />
+          <button id="enterButton" class="hotspot entry-hotspot" type="button" aria-label="开启一个人的公园探索"></button>
+        </div>
+      </section>
+
+      <section id="journeyScreen" class="page journey-page" aria-label="活动介绍">
+        <div class="long-frame journey-frame">
+          <img id="journeyImage" class="design-image screen-base" src="./assets/figma-parts/journey-scene-bg-clean.png" alt="活动规则与玩法介绍" />
+          <button id="shootButton" class="art-button journey-action-button" type="button" aria-label="去拍摄">
+            <img src="./assets/figma-parts/journey-shoot.png" alt="" />
+          </button>
+          <button id="challengeButton" class="hotspot journey-action-button" type="button" aria-label="去挑战" hidden></button>
+          <button id="sceneTab" class="art-button journey-tab-button scene-tab-button" type="button" aria-label="切换到找 i 景">
+            <img src="./assets/figma-parts/journey-tab-scene-active.png" alt="" />
+          </button>
+          <button id="findTab" class="art-button journey-tab-button find-tab-button" type="button" aria-label="切换到找 i 物">
+            <img src="./assets/figma-parts/journey-tab-find-inactive.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <section id="shootSheet" class="viewport-layer sheet-layer scene-sheet-layer" role="dialog" aria-modal="true" aria-label="选择照片" aria-hidden="true">
+        <div class="phone-viewport sheet-viewport">
+          <div class="sheet-dim" aria-hidden="true"></div>
+          <button class="hotspot dismiss-sheet-hotspot" data-close-sheet type="button" aria-label="关闭照片选择"></button>
+          <div class="bottom-sheet-slide">
+            <div class="sheet-grabber" aria-hidden="true"></div>
+            <div class="scene-sheet-copy">
+              <p>请选择您拍摄的照片～</p>
+              <h2>上传照片，一键转换i派记忆明信片</h2>
+            </div>
+            <button id="openScenePicker" class="art-button sheet-upload-button scene-upload-button" type="button" aria-label="上传照片">
+              <img src="./assets/figma-parts/scene-upload.png" alt="" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="converterScreen" class="viewport-layer" aria-label="i 景转换器" aria-hidden="true">
+        <div class="phone-viewport converter-viewport">
+          <svg class="converter-scenery" viewBox="0 1800 1572 1608" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><image href="./assets/converter-screen-bg-ui-clean.png" width="1572" height="3408" /></svg>
+          <div class="source-preview-frame">
+            <img id="sourcePreview" class="source-preview" alt="上传的原始照片" />
+          </div>
+          <div class="postcard-drop-window">
+            <img id="postcardPreview" class="postcard-preview" alt="转换后的派记忆明信片" role="button" tabindex="0" aria-label="查看并下载生成图片" hidden />
+          </div>
+          <img class="mailbox-art" src="./assets/figma-parts/converter-mailbox.png" alt="" aria-hidden="true" />
+          <button id="converterBack" class="top-nav-button top-nav-back" type="button" aria-label="返回活动长页">
+            <img src="./assets/return.png" alt="" />
+          </button>
+          <button id="converterShare" class="top-nav-button top-nav-share" type="button" aria-label="分享">
+            <img src="./assets/share.png" alt="" />
+          </button>
+          <button id="reuploadButton" class="hotspot reupload-hotspot" type="button" aria-label="重新上传照片"></button>
+          <div id="processingBadge" class="processing-badge">正在制作派记忆明信片…</div>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="viewport-layer" role="dialog" aria-modal="true" aria-label="明信片生成完成" aria-hidden="true">
+        <div class="phone-viewport result-viewport">
+          <svg class="converter-scenery" viewBox="0 1800 1572 1608" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><image href="./assets/converter-screen-bg-ui-clean.png" width="1572" height="3408" /></svg>
+          <img class="result-mailbox-art" src="./assets/figma-parts/converter-mailbox.png" alt="" aria-hidden="true" />
+          <div class="result-dim" aria-hidden="true"></div>
+          <div class="result-image-frame">
+            <img id="resultImage" class="result-image" alt="生成完成的派记忆明信片" />
+          </div>
+          <button id="saveButton" class="art-button result-action-button save-button" type="button" aria-label="保存至相册">
+            <img src="./assets/figma-parts/result-save.png" alt="" />
+          </button>
+          <button id="shareButton" class="art-button result-action-button share-button" type="button" aria-label="分享">
+            <img src="./assets/figma-parts/result-share.png" alt="" />
+          </button>
+          <button id="closeResultButton" class="art-button result-close-button" type="button" aria-label="关闭生成结果">
+            <img src="./assets/figma-parts/result-close.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <section id="bingoScreen" class="viewport-layer" aria-label="i 物 Bingo" aria-hidden="true">
+        <div class="phone-viewport bingo-viewport">
+          <div class="bingo-header" aria-hidden="true">
+            <svg viewBox="0 0 1572 1064" preserveAspectRatio="xMidYMax slice"><image href="./assets/bingo-board-clean.png" width="1572" height="3408" /></svg>
+          </div>
+          <div class="bingo-board">
+          <svg class="bingo-board-art" viewBox="0 1064 1572 1872" aria-label="i 物 Bingo 游戏面板" role="img"><image href="./assets/bingo-board-clean.png" width="1572" height="3408" /></svg>
+          <img class="bingo-center-art" src="./assets/figma-parts/bingo-center.png" alt="" aria-hidden="true" />
+          <div id="bingoCompletions" aria-live="polite"></div>
+          <div class="bingo-hotspots" aria-label="选择一个缺失的 i 物">
+            <button class="art-button bingo-card card-0" data-bingo-index="0" type="button" aria-label="上传 i 椅照片"><img src="./assets/figma-parts/bingo-chair.png" alt="i 椅" /></button>
+            <button class="art-button bingo-card card-1" data-bingo-index="1" type="button" aria-label="上传 i 鸭照片"><img src="./assets/figma-parts/bingo-duck.png" alt="i 鸭" /></button>
+            <button class="art-button bingo-card card-2" data-bingo-index="2" type="button" aria-label="上传瓢虫卫生间照片"><img src="./assets/figma-parts/bingo-restroom.png" alt="瓢虫卫生间" /></button>
+            <button class="art-button bingo-card card-3" data-bingo-index="3" type="button" aria-label="上传 i 树照片"><img src="./assets/figma-parts/bingo-tree.png" alt="i 树" /></button>
+            <button class="art-button bingo-card card-4" data-bingo-index="4" type="button" aria-label="上传小松鼠照片"><img src="./assets/figma-parts/bingo-squirrel.png" alt="小松鼠" /></button>
+            <button class="art-button bingo-card card-5" data-bingo-index="5" type="button" aria-label="上传黄腰柳莺照片"><img src="./assets/figma-parts/bingo-bird.png" alt="黄腰柳莺" /></button>
+            <button class="art-button bingo-card card-6" data-bingo-index="6" type="button" aria-label="上传 i 派雕塑照片"><img src="./assets/figma-parts/bingo-sculpture.png" alt="i 派雕塑" /></button>
+            <button class="art-button bingo-card card-7" data-bingo-index="7" type="button" aria-label="上传夜鹭照片"><img src="./assets/figma-parts/bingo-heron.png" alt="夜鹭" /></button>
+          </div>
+          </div>
+          <div class="bingo-footer"><p>点击图片查看i物线索</p><span>换一批</span></div>
+          <button id="bingoBack" class="top-nav-button top-nav-back" type="button" aria-label="返回活动长页">
+            <img src="./assets/return.png" alt="" />
+          </button>
+          <button id="bingoShare" class="top-nav-button top-nav-share" type="button" aria-label="分享">
+            <img src="./assets/share.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <section id="bingoSheet" class="viewport-layer sheet-layer bingo-sheet-layer" role="dialog" aria-modal="true" aria-label="i 物上传提示" aria-hidden="true">
+        <div class="phone-viewport sheet-viewport">
+          <div class="sheet-dim" aria-hidden="true"></div>
+          <button class="hotspot dismiss-bingo-sheet-hotspot" data-close-bingo-sheet type="button" aria-label="关闭线索"></button>
+          <div class="bottom-sheet-slide">
+            <div class="sheet-grabber" aria-hidden="true"></div>
+            <div class="bingo-clue-copy" aria-live="polite">
+              <div class="bingo-clue-title">线索：</div>
+              <p id="bingoClueText"></p>
+            </div>
+            <button id="openBingoPicker" class="art-button sheet-upload-button bingo-upload-button" type="button" aria-label="上传 i 物照片">
+              <img src="./assets/figma-parts/bingo-upload.png" alt="" />
+            </button>
+            <button id="openMapButton" class="hotspot bingo-map-hotspot" type="button" aria-label="查看地图">查看地图 <span aria-hidden="true">›</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="mapScreen" class="viewport-layer map-layer" role="dialog" aria-modal="true" aria-label="朝阳公园地图" aria-hidden="true">
+        <div class="phone-viewport map-viewport">
+          <div class="map-backdrop" aria-hidden="true"></div>
+          <button id="mapPreviewButton" class="map-preview-button" type="button" aria-label="放大地图">
+            <img src="./assets/map.png" alt="朝阳公园地图" />
+          </button>
+          <button id="closeMapButton" class="map-close-button" type="button" aria-label="关闭地图">
+            <img src="./assets/figma-parts/result-close.png" alt="" />
+          </button>
+        </div>
+      </section>
+
+      <section id="permissionDialog" class="permission-layer" role="dialog" aria-modal="true" aria-labelledby="permissionTitle" aria-hidden="true">
+        <button id="permissionBackdrop" class="permission-backdrop" type="button" aria-label="关闭授权说明"></button>
+        <div class="permission-sheet">
+          <div class="permission-grabber" aria-hidden="true"></div>
+          <div class="permission-icon" aria-hidden="true">📷</div>
+          <h2 id="permissionTitle">允许访问你的照片吗？</h2>
+          <p>照片只会在你的设备中用于本次游戏处理，我们不会上传或保存原图。</p>
+          <p class="permission-tip">每次仅可选择 1 张照片</p>
+          <div class="permission-actions">
+            <button id="denyPermission" class="secondary-button" type="button">暂不允许</button>
+            <button id="allowPermission" class="primary-button" type="button">同意并选择照片</button>
+          </div>
+        </div>
+      </section>
+
+      <input id="photoInput" class="visually-hidden" type="file" accept="image/*" />
+      <canvas id="postcardCanvas" class="visually-hidden" width="900" height="1200"></canvas>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+    </div>
+    <p class="device-caption" aria-hidden="true">iPhone 16 · H5 预览</p>
+    </div>
+
+    <script defer src="./app.js?v=20261010-3"></script>
+  </body>
+</html>
